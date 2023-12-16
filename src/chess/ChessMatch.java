@@ -1,16 +1,22 @@
 package chess;
 
-import boardgame.board;
+import boardgame.Board;
 
 public class ChessMatch {
 
-	private board board;
-	
-	public ChessMatch{
-		board = new board(8,8);
+	private Board board;
+
+	public ChessMatch() {
+		board = new Board(8, 8);
 	}
-	public ChessPiece[][]getPiece(){
-		ChessPiece[] mat = new ChessPiece[board.getRow()] [board.getColumn()];
-		
+
+	public ChessPiece[][] getPieces() {
+		ChessPiece[][] mat = new ChessPiece[board.getRow()][board.getColumn()];
+		for (int i=0; i<board.getRow(); i++) {
+			for (int j=0; j<board.getColumn(); j++) {
+				mat[i][j] = (ChessPiece) board.piece(i, j);
+			}
+		}
+		return mat;
 	}
 }
